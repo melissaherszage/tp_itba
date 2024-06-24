@@ -53,12 +53,12 @@ Al ejecutar docker-compose up, Docker Compose combinará ambas configuraciones y
 
 **Información adicional**
 
-- Los archivos se agrupan en carpetas:
- docker/  *Contiene los Dockerfiles necesarios para construir las imágenes Docker para diferentes servicios.*,
- scripts/ *Scripts para inicialización de la base de datos*
- src/ *Código fuente de la aplicación*
- data/ *Archivos de datos*
+Los archivos se agrupan en carpetas:
+ - docker/  *Contiene los Dockerfiles necesarios para construir las imágenes Docker para diferentes servicios.*,
+ - scripts/ *Scripts para inicialización de la base de datos*
+ - src/ *Código fuente de la aplicación*
+ - data/ *Archivos de datos*
 
-- Script de Bash: run_all.sh automatiza el proceso de levantar los contenedores, ejecutar los scripts de inicialización y de consultas, y luego apaga los servicios.
+Script de Bash: run_all.sh automatiza el proceso de levantar los contenedores, ejecutar los scripts de inicialización y de consultas, y luego apaga los servicios.
 
 
