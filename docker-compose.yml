@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:12.7
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: tp_data123
+      POSTGRES_DB: tp_data_itba
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  init-db:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.init-db
+    restart: "no"
+    environment:
+      POSTGRES_PASSWORD: tp_data123
+      POSTGRES_DB: tp_data_itba
+    depends_on:
+      - postgres
+    volumes:
+      - ./scripts:/scripts
+
+volumes:
+  db_data:

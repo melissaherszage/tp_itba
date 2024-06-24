@@ -1,0 +1,10 @@
+FROM python:3.9
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/business_queries.py business_queries.py
+
+CMD ["python", "business_queries.py"]

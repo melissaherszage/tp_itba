@@ -1,0 +1,10 @@
+FROM postgres:12.7
+
+# Copiar los scripts al contenedor
+COPY scripts /scripts
+
+# Asignar permisos de ejecución al script init.sh
+RUN chmod +x /scripts/init.sh
+
+# Ejecutar el script init.sh
+ENTRYPOINT ["/bin/bash", "/scripts/init.sh"]

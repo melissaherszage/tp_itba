@@ -1,0 +1,26 @@
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile.populate
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: tp_data123
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: tp_data_itba
+    volumes:
+      - ./data:/app/data  # Monta el directorio data en /app/data dentro del contenedor
+    depends_on:
+      - postgres
+      - init-db
+
+  reporting-script:
+    build: 
+      context: .
+      dockerfile: Dockerfile.queries
+    depends_on:
+        - app
+
+  
+  
